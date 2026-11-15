@@ -1,0 +1,9 @@
+check,result,status,notes
+"Duplicate route rows (origin, dest)",0,Pass,Each row is one unique route
+"Missing key values (origin, dest)",0,Pass,No nulls in either key column
+Missing ABT values (all columns),25,Documented,"25 missing values total: 21 from 7 unmatched airports (dest_airport_name, dest_lat, dest_lon) and 4 from 1 cancelled-only route (EWR to LGA)"
+"Extreme/outlier flight counts, distances, and air times",5,Documented,"Small-sample routes (e.g., 1-flight routes) produce extreme summary averages and maximums; no impossible values found"
+Routes with a negative max_arr_delay,4,Documented,4 routes have max_arr_delay < 0 (min -22 min); valid early arrivals on routes with very low flight_count
+Missing target values (avg_arr_delay),1,Needs Attention,"1 route (EWR to LGA) has NaN target because its single flight was cancelled; target also excludes 9,430 cancelled/diverted flights across all routes"
+ABT columns without a dictionary row,0,Pass,All 11 ABT columns have corresponding rows in the data dictionary
+Blank data dictionary cells,0,Pass,"All description, source, transformation, and notes fields are populated"
